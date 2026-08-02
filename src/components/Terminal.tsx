@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Terminal as TerminalIcon, X } from 'lucide-react';
-import { PERSONAL_INFO, PROJECTS, EXPERIENCES, TERMINAL_COMMANDS_HELP } from '../data/portfolioData';
+import { PERSONAL_INFO, PROJECTS, EXPERIENCES, TERMINAL_COMMANDS_HELP, EDUCATIONS, CERTIFICATIONS } from '../data/portfolioData';
 import { sounds } from '../utils/soundEffects';
 
 interface TerminalProps {
@@ -73,7 +73,7 @@ export const Terminal: React.FC<TerminalProps> = ({ mode, onClose, onShowToast, 
     const inputLine: OutputLine = {
       id: Math.random().toString(),
       type: 'input',
-      text: `maniraj@portfolio:~$ ${trimmed}`
+      text: trimmed
     };
 
     const lower = trimmed.toLowerCase();
@@ -155,6 +155,43 @@ export const Terminal: React.FC<TerminalProps> = ({ mode, onClose, onShowToast, 
                   <div className="text-emerald-400 font-bold">{e.role} @ {e.company}</div>
                   <div className="text-zinc-500 text-[11px]">{e.period} • {e.location}</div>
                   <div className="text-zinc-300 text-[11px] mt-0.5">{e.description}</div>
+                </div>
+              ))}
+            </div>
+          )
+        };
+        break;
+
+      case 'edu':
+      case 'education':
+        resultLine = {
+          id: Math.random().toString(),
+          type: 'output',
+          text: (
+            <div className="space-y-2 my-1 text-xs">
+              {EDUCATIONS.map((e) => (
+                <div key={e.id} className="border-b border-zinc-800 pb-1.5">
+                  <div className="text-emerald-400 font-bold">{e.degree}</div>
+                  <div className="text-zinc-300 font-semibold">{e.institution} • {e.score}</div>
+                  <div className="text-zinc-500 text-[11px]">{e.period} • {e.location}</div>
+                </div>
+              ))}
+            </div>
+          )
+        };
+        break;
+
+      case 'cert':
+      case 'certifications':
+        resultLine = {
+          id: Math.random().toString(),
+          type: 'output',
+          text: (
+            <div className="space-y-1.5 my-1 text-xs">
+              {CERTIFICATIONS.map((c) => (
+                <div key={c.id} className="border-b border-zinc-800 pb-1">
+                  <div className="text-emerald-400 font-bold">{c.title}</div>
+                  <div className="text-zinc-300 text-[11px]">Issuer: {c.issuer} ({c.year})</div>
                 </div>
               ))}
             </div>
@@ -340,7 +377,7 @@ export const Terminal: React.FC<TerminalProps> = ({ mode, onClose, onShowToast, 
             key={line.id}
             className={`whitespace-pre-wrap ${
               line.type === 'input'
-                ? 'text-zinc-400 font-semibold'
+                ? ''
                 : line.type === 'error'
                 ? 'text-rose-400 font-bold'
                 : line.type === 'success'
@@ -348,7 +385,14 @@ export const Terminal: React.FC<TerminalProps> = ({ mode, onClose, onShowToast, 
                 : 'text-zinc-300'
             }`}
           >
-            {line.text}
+            {line.type === 'input' ? (
+              <div className="flex items-center gap-2 pt-0.5">
+                <span className="text-[#D1FF26] font-extrabold shrink-0">maniraj@portfolio:~$</span>
+                <span className="text-zinc-100 font-bold">{line.text}</span>
+              </div>
+            ) : (
+              line.text
+            )}
           </div>
         ))}
 
