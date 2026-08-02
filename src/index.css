@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-display: 'Syne', 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+@layer base {
+  body {
+    background-color: #0D0D0D;
+    color: #F3F3F3;
+    font-family: var(--font-sans);
+  }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #D1FF26;
+    outline-offset: 2px;
+  }
+}
+
+/* Artistic Flair Accent & Glow Utilities */
+.text-lime-accent {
+  color: #D1FF26;
+}
+
+.bg-lime-accent {
+  background-color: #D1FF26;
+}
+
+.border-lime-accent {
+  border-color: #D1FF26;
+}
+
+.glow-lime {
+  box-shadow: 0 0 25px -5px rgba(209, 255, 38, 0.3);
+}
+
+.border-lime-glow {
+  border-color: rgba(209, 255, 38, 0.35);
+  box-shadow: 0 0 15px -3px rgba(209, 255, 38, 0.15);
+}
+
+/* Custom Scrollbar for Artistic Theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D1FF26;
+}
