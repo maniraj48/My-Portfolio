@@ -1,144 +1,91 @@
-# Maniraj Kyatham — Interactive Software Engineering Portfolio
+# Maniraj Kyatham - Portfolio
 
-A modern, high-performance developer portfolio and personal intelligence platform built for **Maniraj Kyatham**, a B.Tech IT Graduate & Python / REST API Developer specializing in **FastAPI, Flask, SQL Query Optimization, and Machine Learning Platform Engineering**.
+A responsive software-development portfolio for Maniraj Kyatham, a final-year B.Tech Information Technology student. It presents backend, AI/ML, and full-stack project work, including the Subscription Churn Prediction System and Knowledge Vault AI.
 
----
+## Highlights
 
-## 🚀 Key Highlights & Features
+- Interactive portfolio CLI, available inline and as a modal from the navigation bar or `Ctrl+K`.
+- Featured project deep-dives with architecture notes, technologies, and GitHub links.
+- Developer-profile cards with GitHub and LeetCode public-stat popups.
+- Experience, academic history, and certifications, including the 100-hour Specialized AI, ML & NLP training program.
+- Downloadable PDF resume served from `public/resume.pdf`.
+- Recruiter contact modal that opens a prefilled email draft.
+- Optional interaction sound effects.
 
-- **⚡ Interactive Terminal CLI**: Embedded terminal emulator supporting interactive commands (`help`, `skills`, `projects`, `contact`, `hire`, `clear`, `resume`, `fasttrack`).
-- **📊 GitHub & LeetCode Activity Heatmap**: Real-time coding consistency tracker featuring a 52-week contribution matrix, commit metrics, and LeetCode problem-solving breakdown (Easy, Medium, Hard).
-- **📄 Instant PDF Resume Generation**: Simulated on-the-fly client-side PDF document generator allowing recruiters to download Maniraj's resume instantly.
-- **🛠 Interactive Project Showcase**: Detailed project cards with live architecture breakdowns, key performance benchmarks, and direct links to GitHub repositories.
-- **🎓 Academic & Certifications Grid**: Highlights B.Tech IT academic records (CGPA 8.36/10) and certifications from Infosys Springboard, AICTE / Edunet Foundation, Cisco, Simplilearn, and TCS iON.
-- **📬 Interactive Contact Module**: Fast message dispatch system with toast notifications and direct communication channels.
+## Tech stack
 
----
+- React 19 and TypeScript
+- Vite 6
+- Tailwind CSS 4
+- Motion
+- Lucide React
 
-## 🛠 Tech Stack & Architecture
+This is a static frontend application. It does not require a database, backend server, or environment variables to deploy.
 
-### **Frontend**
-- **Framework**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- **Build Tool**: [Vite 6](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Animations**: [Motion](https://motion.dev/) (Framer Motion)
-- **Icons**: [Lucide React](https://lucide.dev/)
+## Run locally
 
-### **Backend & APIs**
-- **Server**: [Express.js](https://expressjs.com/) (Node.js)
-- **Runtime**: `tsx` for direct TypeScript execution in development
-- **Bundler**: `esbuild` for single-file CommonJS production builds (`dist/server.cjs`)
-- **AI Integration**: [@google/genai](https://www.npmjs.com/package/@google/genai) SDK (`gemini-3.6-flash`)
+Prerequisites: Node.js 18+ and npm.
 
----
-
-## 📂 Project Directory Structure
-
-```
-├── server.ts                 # Full-stack Express backend server & Vite middleware
-├── index.html                # HTML entry point
-├── package.json              # Project scripts and dependencies
-├── vite.config.ts            # Vite configuration
-├── tsconfig.json             # TypeScript compiler settings
-├── .env.example              # Environment variables template
-└── src/
-    ├── main.tsx              # React application entry point
-    ├── App.tsx               # Main component & layout orchestration
-    ├── index.css             # Tailwind CSS global styles
-    ├── components/
-    │   ├── Header.tsx        # Responsive navigation bar with sound effects
-    │   ├── Hero.tsx          # Hero section with resume download & CLI launcher
-    │   ├── CodingActivity.tsx# GitHub & LeetCode heatmap and consistency stats
-    │   ├── Projects.tsx      # Interactive project cards & metrics
-    │   ├── Experience.tsx    # Experience timeline & education/certifications
-    │   ├── Skills.tsx        # Technical skills matrix & proficiencies
-    │   ├── ContactSection.tsx# Contact form & social connections
-    │   ├── TerminalModal.tsx # Interactive terminal CLI modal
-    │   └── Footer.tsx        # Footer section
-    ├── data/
-    │   └── portfolioData.ts  # Personal info, project details, skills & timeline
-    └── utils/
-        └── soundEffects.ts   # Web Audio API sound effect synthesis
-```
-
----
-
-## 💻 How to Run Locally
-
-Follow these step-by-step instructions to get the project running on your local development machine:
-
-### **1. Prerequisites**
-Ensure you have the following installed on your system:
-- **Node.js** (v18.0.0 or higher recommended) — [Download Node.js](https://nodejs.org/)
-- **npm** (v9.0.0 or higher, comes bundled with Node.js)
-- **Git** — [Download Git](https://git-scm.com/)
-
----
-
-### **2. Clone or Download the Repository**
-```bash
-git clone https://github.com/maniraj48/portfolio.git
-cd portfolio
-```
-
----
-
-### **3. Install Project Dependencies**
-Install all required Node.js dependencies using `npm`:
 ```bash
 npm install
-```
-
----
-
-### **4. Start Development Server**
-Launch the Vite development server with hot-reload support:
-```bash
 npm run dev
 ```
 
-Open your browser and navigate to the local server URL printed in your terminal (typically `http://localhost:5173`).
+Open the local URL printed by Vite (normally `http://localhost:5173`).
 
----
+## Validate and build
 
-### **5. Build for Production**
-To generate a fully bundled, production-ready static release:
+```bash
+npm run lint
+npm run build
+npm run preview
+```
 
-1. **Compile Static Assets**:
-   ```bash
-   npm run build
-   ```
-   This compiles all frontend assets into the `dist/` directory.
+The production-ready static site is created in `dist/`.
 
-2. **Verify Production Build Locally**:
-   ```bash
-   npm start
-   ```
-   This runs the Vite preview server locally (typically at `http://localhost:3000`), allowing you to verify the build output.
+## Deploy free with Cloudflare Pages
 
----
+Cloudflare Pages is recommended for this Vite portfolio. It provides HTTPS and automatic deployments from GitHub on its free plan.
 
-## 📜 NPM Scripts Overview
+1. Push this repository to GitHub.
+2. Create or sign in to a Cloudflare account.
+3. In Cloudflare, choose **Workers & Pages** -> **Create** -> **Pages** -> **Connect to Git**.
+4. Select the GitHub repository.
+5. Configure the build:
 
-| Command | Action |
-| :--- | :--- |
-| `npm run dev` | Launches the Vite dev server with hot-reload |
-| `npm run build` | Compiles frontend assets into `dist/` for production |
-| `npm start` | Launches Vite preview server on port 3000 to verify build output |
-| `npm run lint` | Runs `tsc --noEmit` to verify type safety across the project |
-| `npm run clean` | Removes the compiled `dist` folder |
+   | Setting | Value |
+   | --- | --- |
+   | Framework preset | Vite |
+   | Build command | `npm run build` |
+   | Build output directory | `dist` |
 
----
+6. Select **Save and Deploy**.
 
-## 👤 Developer Contact & Profiles
+Cloudflare will publish a free `*.pages.dev` URL and redeploy the site whenever you push changes to the connected branch. A custom domain is optional; hosting stays free, but registering a domain normally costs money.
 
-- **Developer**: Maniraj Kyatham
-- **Email**: [manirajkyatham@gmail.com](mailto:manirajkyatham@gmail.com)
-- **Phone**: +91 7671822839
-- **GitHub**: [github.com/maniraj48](https://github.com/maniraj48)
-- **LeetCode**: [leetcode.com/u/maniraj48](https://leetcode.com/u/maniraj48)
-- **LinkedIn**: [linkedin.com/in/maniraj-kyatham](https://linkedin.com/in/maniraj-kyatham)
+## Alternative: GitHub Pages
 
----
+GitHub Pages is also free for a public repository. For this Vite app, use a GitHub Actions deployment workflow so the `dist/` output is published after every build. Cloudflare Pages is simpler for a first deployment.
 
-© 2026 Maniraj Kyatham. Built with React, TypeScript & Tailwind CSS.
+## Project structure
+
+```text
+src/
+  components/          Page sections, terminal, modals, and navigation
+  data/portfolioData.ts Portfolio content: projects, experience, skills, certifications
+  utils/soundEffects.ts Web Audio interaction effects
+  App.tsx               Page composition and terminal behaviour
+  main.tsx              React entry point
+public/
+  resume.pdf            Downloadable resume
+  robots.txt
+```
+
+## Profiles and contact
+
+- Email: [manirajkyatham@gmail.com](mailto:manirajkyatham@gmail.com)
+- GitHub: [github.com/maniraj48](https://github.com/maniraj48)
+- LeetCode: [leetcode.com/u/maniraj48](https://leetcode.com/u/maniraj48)
+- LinkedIn: [linkedin.com/in/maniraj-kyatham](https://linkedin.com/in/maniraj-kyatham)
+
+� 2026 Maniraj Kyatham. Built with React, TypeScript, and Tailwind CSS.
